@@ -32,7 +32,7 @@ export default function Pricing() {
                 <p className="text-blue-100 mb-8">Everything you need to land your dream job</p>
                 
                 <div className="mb-8">
-                  <div className="text-6xl font-bold text-white mb-2">$29.99</div>
+                  <div className="text-6xl font-bold text-white mb-2">$9.99</div>
                   <div className="text-blue-100">One-time payment</div>
                 </div>
 
@@ -51,7 +51,7 @@ export default function Pricing() {
               Ready to Land More Interviews?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Get your AI-powered resume today for just $29.99
+              Get your AI-powered resume today for just $9.99
             </p>
             <Link href="/generate" className="inline-block bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition text-lg">
               Start Now

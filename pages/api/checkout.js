@@ -18,7 +18,7 @@ export default async function handler(req, res) {
               name: 'AI-Generated Professional Resume',
               description: 'Your personalized, ATS-optimized resume',
             },
-            unit_amount: 2999,
+            unit_amount: 999,
           },
           quantity: 1,
         },

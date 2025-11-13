@@ -11,6 +11,9 @@ export default function Footer() {
               Transform your career with AI-powered resume generation. 
               Create professional, ATS-optimized resumes in minutes.
             </p>
+            <div className="text-gray-400">
+              <p>Email: <a href="mailto:smartresumegen@gmail.com" className="text-primary-400 hover:text-primary-300">smartresumegen@gmail.com</a></p>
+            </div>
           </div>
 
           <div>

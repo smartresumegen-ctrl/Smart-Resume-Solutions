@@ -258,7 +258,7 @@ export default function Generate() {
               {/* Pricing Notice */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-blue-900 font-medium">
-                  💳 Price: $29.99 for your AI-generated resume
+                  💳 Price: $9.99 for your AI-generated resume
                 </p>
                 <p className="text-blue-700 text-sm mt-1">
                   You'll be redirected to secure payment after submitting your information
