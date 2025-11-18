@@ -29,10 +29,12 @@ export default function Generate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log('[DEBUG] Step 1: Form submitted')
+    
     setLoading(true)
+    console.log('[DEBUG] Step 2: Calling API with data:', formData)
 
     try {
-      // Generate resume
       const response = await fetch('/api/resume', {
         method: 'POST',
         headers: {
@@ -42,9 +44,33 @@ export default function Generate() {
       })
 
       const data = await response.json()
+      console.log('[DEBUG] Step 3: API responded:', data)
 
       if (data.success) {
-        // Redirect to checkout
+        console.log('[DEBUG] Step 4: Success! Storing resume data...')
+        
+        if (typeof window !== 'undefined') {
+          const resumeToStore = {
+            content: data.resumeContent,
+            name: data.userData.name,
+            email: data.userData.email,
+            phone: data.userData.phone,
+            location: data.userData.location,
+            resumeId: data.resumeId,
+            downloadUrls: data.downloadUrls
+          }
+          
+          console.log('[DEBUG] Step 5: Data to store:', resumeToStore)
+          
+          sessionStorage.setItem('resumeData', JSON.stringify(resumeToStore))
+          
+          console.log('[DEBUG] Step 6: Stored! Verifying...')
+          const verification = sessionStorage.getItem('resumeData')
+          console.log('[DEBUG] Step 7: Verification result:', verification)
+        }
+
+        // Call Stripe Checkout API
+        console.log('[DEBUG] Step 8: Calling Stripe checkout...')
         const checkoutResponse = await fetch('/api/checkout', {
           method: 'POST',
           headers: {
@@ -57,13 +83,19 @@ export default function Generate() {
         })
 
         const checkoutData = await checkoutResponse.json()
+        console.log('[DEBUG] Step 9: Stripe checkout response:', checkoutData)
 
         if (checkoutData.url) {
+          console.log('[DEBUG] Step 10: Redirecting to Stripe checkout page...')
           window.location.href = checkoutData.url
+        } else {
+          alert('Failed to create checkout session. Please try again.')
         }
+      } else {
+        alert('Failed to generate resume. Please try again.')
       }
     } catch (error) {
-      console.error('Error:', error)
+      console.error('[DEBUG] Error in handleSubmit:', error)
       alert('Something went wrong. Please try again.')
     } finally {
       setLoading(false)
@@ -85,7 +117,6 @@ export default function Generate() {
             <p className="text-gray-600 mb-8">Fill in your information and let AI create your perfect resume</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Personal Information */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Personal Information</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -146,7 +177,6 @@ export default function Generate() {
                 </div>
               </div>
 
-              {/* Job Target */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Target Job</h2>
                 <div className="space-y-4">
@@ -180,7 +210,6 @@ export default function Generate() {
                 </div>
               </div>
 
-              {/* Work Experience */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Work Experience</h2>
                 <div>
@@ -199,7 +228,6 @@ export default function Generate() {
                 </div>
               </div>
 
-              {/* Education */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Education</h2>
                 <div>
@@ -218,7 +246,6 @@ export default function Generate() {
                 </div>
               </div>
 
-              {/* Skills */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Skills</h2>
                 <div>
@@ -237,7 +264,6 @@ export default function Generate() {
                 </div>
               </div>
 
-              {/* Certifications */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Certifications (Optional)</h2>
                 <div>
@@ -255,7 +281,6 @@ export default function Generate() {
                 </div>
               </div>
 
-              {/* Pricing Notice */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-blue-900 font-medium">
                   💳 Price: $9.99 for your AI-generated resume
@@ -265,7 +290,6 @@ export default function Generate() {
                 </p>
               </div>
 
-              {/* Submit Button */}
               <div>
                 <button
                   type="submit"
