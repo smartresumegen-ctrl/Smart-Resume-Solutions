@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-G-Z81H775V5V');
+          gtag('config', 'G-Z81H775V5V');
         `}
       </Script>
       
