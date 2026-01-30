@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Home() {
+  const [showModal, setShowModal] = useState(false)
+
   return (
     <>
       <Head>
@@ -51,8 +54,11 @@ export default function Home() {
                 <Link href="/generate" className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition shadow-lg inline-block">
                   🚀 Create My Resume Now - $9.99
                 </Link>
-                <button className="bg-white border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-blue-600 hover:text-blue-600 transition">
-                  👀 See Sample Resume
+                <button 
+                  onClick={() => setShowModal(true)}
+                  className="bg-white border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-blue-600 hover:text-blue-600 transition"
+                >
+                  👀 See Sample Resumes
                 </button>
               </div>
               <p className="text-sm text-gray-500">✓ No credit card needed to preview</p>
@@ -113,6 +119,16 @@ export default function Home() {
                   <p className="text-green-600 font-semibold mt-4">✅ Specific, impressive, ATS-optimized with keywords</p>
                 </div>
               </div>
+            </div>
+
+            {/* View Samples CTA */}
+            <div className="text-center mt-12">
+              <button 
+                onClick={() => setShowModal(true)}
+                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition shadow-lg"
+              >
+                👀 View All 3 Sample Resumes
+              </button>
             </div>
           </div>
         </section>
@@ -256,6 +272,13 @@ export default function Home() {
                 Generate My Resume Now
               </Link>
               <p className="text-sm text-gray-500 mt-4">Secure payment via Stripe</p>
+              
+              <button 
+                onClick={() => setShowModal(true)}
+                className="mt-4 text-blue-600 hover:text-blue-700 font-semibold text-sm"
+              >
+                👀 View sample resumes first
+              </button>
             </div>
           </div>
         </section>
@@ -353,6 +376,117 @@ export default function Home() {
             <p className="text-sm">© 2025 Smart Resume Solutions. All rights reserved.</p>
           </div>
         </footer>
+
+        {/* Sample Resume Modal */}
+        {showModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setShowModal(false)}>
+            <div className="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+              {/* Modal Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center rounded-t-2xl">
+                <h2 className="text-2xl font-bold text-gray-900">Sample Resume Styles</h2>
+                <button 
+                  onClick={() => setShowModal(false)}
+                  className="text-gray-400 hover:text-gray-600 text-3xl font-bold"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6">
+                <p className="text-center text-gray-600 mb-8">
+                  All 3 styles are included with your $9.99 purchase. Choose your favorite or use all three for different job applications!
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  {/* Classic Style */}
+                  <div className="border-2 border-gray-200 rounded-lg overflow-hidden hover:border-blue-500 transition">
+                    <div className="bg-gray-100 p-4 border-b">
+                      <h3 className="font-bold text-lg text-gray-900">Classic Style</h3>
+                      <p className="text-sm text-gray-600">Traditional, ATS-friendly format</p>
+                    </div>
+                    <div className="p-4">
+                      <div className="bg-gray-200 h-64 mb-4 flex items-center justify-center text-gray-500">
+                        <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <a 
+                        href="https://smart-resume-resolutions-pdfs.s3.us-east-2.amazonaws.com/sample_resume_classic_style.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                      >
+                        View Classic PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Modern Style */}
+                  <div className="border-2 border-blue-500 rounded-lg overflow-hidden">
+                    <div className="bg-blue-50 p-4 border-b border-blue-200">
+                      <div className="flex items-center justify-between mb-1">
+                        <h3 className="font-bold text-lg text-gray-900">Modern Style</h3>
+                        <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">POPULAR</span>
+                      </div>
+                      <p className="text-sm text-gray-600">Clean, contemporary design</p>
+                    </div>
+                    <div className="p-4">
+                      <div className="bg-blue-100 h-64 mb-4 flex items-center justify-center text-blue-500">
+                        <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <a 
+                        href="https://smart-resume-resolutions-pdfs.s3.us-east-2.amazonaws.com/sample_resume_modern_style.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                      >
+                        View Modern PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Executive Style */}
+                  <div className="border-2 border-gray-200 rounded-lg overflow-hidden hover:border-blue-500 transition">
+                    <div className="bg-gray-100 p-4 border-b">
+                      <h3 className="font-bold text-lg text-gray-900">Executive Style</h3>
+                      <p className="text-sm text-gray-600">Professional, leadership-focused</p>
+                    </div>
+                    <div className="p-4">
+                      <div className="bg-gray-200 h-64 mb-4 flex items-center justify-center text-gray-500">
+                        <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <a 
+                        href="https://smart-resume-resolutions-pdfs.s3.us-east-2.amazonaws.com/sample_resume_executive_style.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                      >
+                        View Executive PDF
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA in Modal */}
+                <div className="mt-8 text-center bg-blue-50 p-6 rounded-lg">
+                  <p className="text-gray-700 mb-4 font-semibold">Love what you see? Get all 3 styles for just $9.99!</p>
+                  <Link 
+                    href="/generate"
+                    onClick={() => setShowModal(false)}
+                    className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition"
+                  >
+                    Create My Resume Now →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   )
