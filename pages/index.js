@@ -380,13 +380,13 @@ export default function Home() {
         {/* Sample Resume Modal */}
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setShowModal(false)}>
-            <div className="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
               {/* Modal Header */}
-              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center rounded-t-2xl">
+              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center rounded-t-2xl z-10">
                 <h2 className="text-2xl font-bold text-gray-900">Sample Resume Styles</h2>
                 <button 
                   onClick={() => setShowModal(false)}
-                  className="text-gray-400 hover:text-gray-600 text-3xl font-bold"
+                  className="text-gray-400 hover:text-gray-600 text-3xl font-bold leading-none"
                 >
                   ×
                 </button>
@@ -406,10 +406,12 @@ export default function Home() {
                       <p className="text-sm text-gray-600">Traditional, ATS-friendly format</p>
                     </div>
                     <div className="p-4">
-                      <div className="bg-gray-200 h-64 mb-4 flex items-center justify-center text-gray-500">
-                        <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
+                      <div className="mb-4 border border-gray-200 rounded overflow-hidden">
+                        <img 
+                          src="https://smart-resume-resolutions-pdfs.s3.us-east-2.amazonaws.com/Classic_Example_Resume.png"
+                          alt="Classic Resume Style Preview"
+                          className="w-full h-auto"
+                        />
                       </div>
                       <a 
                         href="https://smart-resume-resolutions-pdfs.s3.us-east-2.amazonaws.com/sample_resume_classic_style.pdf"
@@ -417,7 +419,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
                       >
-                        View Classic PDF
+                        View Full PDF
                       </a>
                     </div>
                   </div>
@@ -432,10 +434,12 @@ export default function Home() {
                       <p className="text-sm text-gray-600">Clean, contemporary design</p>
                     </div>
                     <div className="p-4">
-                      <div className="bg-blue-100 h-64 mb-4 flex items-center justify-center text-blue-500">
-                        <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
+                      <div className="mb-4 border border-blue-200 rounded overflow-hidden">
+                        <img 
+                          src="https://smart-resume-resolutions-pdfs.s3.us-east-2.amazonaws.com/Modern_Example_Resume.png"
+                          alt="Modern Resume Style Preview"
+                          className="w-full h-auto"
+                        />
                       </div>
                       <a 
                         href="https://smart-resume-resolutions-pdfs.s3.us-east-2.amazonaws.com/sample_resume_modern_style.pdf"
@@ -443,7 +447,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
                       >
-                        View Modern PDF
+                        View Full PDF
                       </a>
                     </div>
                   </div>
@@ -455,10 +459,12 @@ export default function Home() {
                       <p className="text-sm text-gray-600">Professional, leadership-focused</p>
                     </div>
                     <div className="p-4">
-                      <div className="bg-gray-200 h-64 mb-4 flex items-center justify-center text-gray-500">
-                        <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
+                      <div className="mb-4 border border-gray-200 rounded overflow-hidden">
+                        <img 
+                          src="https://smart-resume-resolutions-pdfs.s3.us-east-2.amazonaws.com/Executive_Example_Resume.png"
+                          alt="Executive Resume Style Preview"
+                          className="w-full h-auto"
+                        />
                       </div>
                       <a 
                         href="https://smart-resume-resolutions-pdfs.s3.us-east-2.amazonaws.com/sample_resume_executive_style.pdf"
@@ -466,7 +472,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
                       >
-                        View Executive PDF
+                        View Full PDF
                       </a>
                     </div>
                   </div>
