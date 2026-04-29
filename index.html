@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Athens All-Around | Home Services in Athens, GA</title>
+  <meta name="description" content="Athens All-Around offers lawn care, car washing, pet sitting, window cleaning, gutter cleaning, junk removal, errands and more in Athens, GA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:   #1f3d0c;
+      --green-mid:    #2d5a16;
+      --green-bright: #4a8a28;
+      --green-light:  #a8d86e;
+      --green-pale:   #e8f5d0;
+      --cream:        #faf8f3;
+      --text:         #1a1a1a;
+      --text-muted:   #5a6655;
+      --border:       #d4e8b8;
+      --white:        #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,248,243,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green-deep);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--green-bright); }
+    .nav-cta {
+      background: var(--green-mid);
+      color: var(--green-light);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--green-deep); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--green-deep);
+      padding: 80px 5vw 90px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      opacity: 0.35;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: 60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: var(--green-bright);
+      opacity: 0.2;
+    }
+    .hero-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-deep);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(42px, 8vw, 72px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--green-light);
+    }
+    .hero p {
+      color: #b8d898;
+      font-size: 17px;
+      max-width: 480px;
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--green-light);
+      color: var(--green-deep);
+      border: none;
+      border-radius: 10px;
+      padding: 14px 26px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .btn-primary:hover { transform: translateY(-1px); background: #bde880; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--green-light);
+      border: 1.5px solid var(--green-light);
+      border-radius: 10px;
+      padding: 13px 26px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s;
+    }
+    .btn-ghost:hover { background: rgba(168,216,110,0.1); }
+
+    /* ── SECTIONS ── */
+    section { padding: 64px 5vw; }
+    .section-inner { max-width: 720px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700;
+      color: var(--green-deep);
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+      line-height: 1.15;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .service-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem 1rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .service-card:hover {
+      border-color: var(--green-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(45,90,22,0.1);
+    }
+    .service-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+    .service-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--green-deep);
+      margin-bottom: 4px;
+    }
+    .service-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .service-price {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green-bright);
+      background: var(--green-pale);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--green-pale); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    .step { text-align: center; }
+    .step-num {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--green-deep);
+      color: var(--green-light);
+      font-size: 18px;
+      font-weight: 700;
+      font-family: 'Fraunces', serif;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .step h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--green-deep);
+      margin-bottom: 4px;
+    }
+    .step p { font-size: 13px; color: var(--text-muted); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 5vw;
+    }
+    .trust-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--green-deep);
+    }
+    .trust-item span { font-size: 18px; }
+
+    /* ── CTA ── */
+    #contact {
+      background: var(--green-deep);
+      text-align: center;
+    }
+    #contact .section-title { color: var(--white); margin-bottom: 0.75rem; }
+    #contact p { color: #b8d898; font-size: 16px; margin-bottom: 2rem; }
+    .contact-phone {
+      display: inline-block;
+      font-family: 'Fraunces', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--green-light);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-deep);
+      border-top: 1px solid rgba(168,216,110,0.15);
+      padding: 24px 5vw;
+      text-align: center;
+    }
+    footer p { color: #6a9850; font-size: 13px; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-inner { animation: fadeUp 0.6s ease both; }
+    .service-card { animation: fadeUp 0.5s ease both; }
+
+    @media (max-width: 500px) {
+      .hero { padding: 56px 5vw 64px; }
+      .hero-btns { flex-direction: column; }
+      .btn-primary, .btn-ghost { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Athens <span>All-Around</span></div>
+    <a href="#contact" class="nav-cta">Book now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">📍 Athens, GA</div>
+      <h1>Every job.<br><em>One call.</em></h1>
+      <p>From lawn care to car washing, pet sitting to window cleaning — Athens All-Around handles it all so you don't have to.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Book a service →</a>
+        <a href="#services" class="btn-ghost">See all services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><span>✅</span> Local Athens team</div>
+      <div class="trust-item"><span>💳</span> Easy online payments</div>
+      <div class="trust-item"><span>📅</span> Flexible scheduling</div>
+      <div class="trust-item"><span>🤝</span> Reliable & friendly</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="section-label">What we do</div>
+      <div class="section-title">Services we offer</div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🌿</span>
+          <h3>Lawn Care</h3>
+          <p>Mowing, edging & general yard cleanup</p>
+          <div class="service-price">From $40</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🚗</span>
+          <h3>Car Washing</h3>
+          <p>Interior & exterior detail at your door</p>
+          <div class="service-price">From $30</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🐾</span>
+          <h3>Pet Sitting & Walking</h3>
+          <p>Walks, check-ins & overnight stays</p>
+          <div class="service-price">From $20</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🪟</span>
+          <h3>Window Cleaning</h3>
+          <p>Inside & outside, streak-free results</p>
+          <div class="service-price">From $35</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🍂</span>
+          <h3>Gutter Cleaning</h3>
+          <p>Clear debris & prevent blockages</p>
+          <div class="service-price">From $60</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏠</span>
+          <h3>House Sitting</h3>
+          <p>Peace of mind while you're away</p>
+          <div class="service-price">From $25/day</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🛒</span>
+          <h3>Errands & Grocery Runs</h3>
+          <p>We handle your to-do list for you</p>
+          <div class="service-price">From $20</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📦</span>
+          <h3>Junk Removal</h3>
+          <p>Haul away old items & clutter fast</p>
+          <div class="service-price">From $50</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🧹</span>
+          <h3>Garage Organization</h3>
+          <p>Sort, clean & declutter your space</p>
+          <div class="service-price">Get a quote</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="section-inner">
+      <div class="section-label">The process</div>
+      <div class="section-title">How it works</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Book online</h4>
+          <p>Pick your service & a time that works for you</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>We show up</h4>
+          <p>A friendly, reliable team member arrives</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Pay securely</h4>
+          <p>Invoice sent, pay online in seconds</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4>Enjoy!</h4>
+          <p>Sit back and enjoy the results</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-label" style="color: var(--green-light);">Get in touch</div>
+      <div class="section-title">Ready to book?</div>
+      <p>Call or text us anytime — we serve Athens, GA and surrounding neighborhoods.</p>
+      <div><a class="contact-phone" href="tel:+17065550000">(706) 555-0000</a></div>
+      <a href="tel:+17065550000" class="btn-primary" style="font-size:16px; padding:16px 32px;">Call or text to book</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Athens All-Around · Athens, GA · All rights reserved</p>
+  </footer>
+
+</body>
+</html>
